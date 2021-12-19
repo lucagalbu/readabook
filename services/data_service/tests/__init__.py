@@ -1,2 +1,2 @@
 a = "tre"
-b = 'fhg'
+b = 'fh'
