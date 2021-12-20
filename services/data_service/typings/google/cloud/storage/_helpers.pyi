@@ -25,6 +25,7 @@ class _PropertyMixin:
                  number or letter.
     """
 
+    name: str
     def __init__(self, name=...) -> None: ...
     @property
     def path(self):
