@@ -36,6 +36,10 @@ class StorageService:
         """Delete an uploaded file"""
         self.dao.delete_file(filename)
 
+    def get_text_files(self) -> Union[list[str], None]:
+        """Get a list of text files from the database"""
+        return self.dao.list_files(content_type="text/plain")
+
     def _upload_text(self, content: Union[str, bytes], filename: str) -> None:
         content_str = content if isinstance(content, str) else content.decode()
         if pathlib.Path(filename).suffix != ".txt":
