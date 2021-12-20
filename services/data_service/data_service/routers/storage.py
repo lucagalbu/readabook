@@ -1,8 +1,10 @@
 """Module to create a router with the API endpoints of the data service"""
 from __future__ import annotations
+import pathlib
 from typing import TYPE_CHECKING
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from starlette.status import (
+    HTTP_200_OK,
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
     HTTP_501_NOT_IMPLEMENTED,
@@ -41,5 +43,21 @@ def make_router(dao: DaoBase):
     @router.delete("/delete", tags=["file"], status_code=HTTP_204_NO_CONTENT)
     def delete_file(filename: str):  # type: ignore
         service.delete_file(filename)
+
+    @router.get("/read-text", tags=["file"], status_code=HTTP_200_OK)
+    def read_text(filename: str):  # type:ignore
+        extension = pathlib.Path(filename).suffix
+        if extension == "":
+            filename += ".txt"
+
+        try:
+            text = service.download_text(filename)
+        except NotImplementedError as err:
+            raise HTTPException(
+                status_code=HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="The server encountered a problem in deleting the resource.",
+            ) from err
+
+        return text
 
     return router
