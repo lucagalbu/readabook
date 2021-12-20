@@ -60,4 +60,8 @@ def make_router(dao: DaoBase):
 
         return text
 
+    @router.get("/list-text-files", tags=["file"], status_code=HTTP_200_OK)
+    def get_list_text():  # type: ignore
+        return service.get_text_files()
+
     return router
