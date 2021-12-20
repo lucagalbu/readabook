@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from starlette.status import (
     HTTP_201_CREATED,
+    HTTP_204_NO_CONTENT,
     HTTP_501_NOT_IMPLEMENTED,
     HTTP_500_INTERNAL_SERVER_ERROR,
 )
@@ -36,5 +37,9 @@ def make_router(dao: DaoBase):
                 status_code=HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="The server encountered a problem in uploading the content.",
             ) from err
+
+    @router.delete("/delete", tags=["file"], status_code=HTTP_204_NO_CONTENT)
+    def delete_file(filename: str):  # type: ignore
+        service.delete_file(filename)
 
     return router
