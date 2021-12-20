@@ -1,7 +1,8 @@
 """Implements the DAO using Google Firebase"""
 from __future__ import annotations
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional, Union
 from firebase_admin import storage, App, initialize_app
+from google.cloud.storage.blob import Blob
 from data_service.daos.base import DaoBase
 
 if TYPE_CHECKING:
@@ -47,3 +48,25 @@ class FirebaseDao(DaoBase):
     def delete_file(self, filename: str) -> None:
         blob = self.bucket.blob(blob_name=filename)
         blob.delete()
+
+    def list_files(self, content_type: Optional[str] = None) -> Union[list[str], None]:
+        blobs = self._get_list_blobs()
+        filtered_blobs = self._filter_blobs_by_content(blobs, content_type)
+        name_blobs = [blob.name for blob in filtered_blobs]
+        return name_blobs
+
+    def _get_list_blobs(self) -> list[Blob]:
+        client = self.bucket.client
+        blobs_iterator = client.list_blobs(self.bucket)
+        blobs_list = list(blobs_iterator)
+        return blobs_list
+
+    @staticmethod
+    def _filter_blobs_by_content(blobs: list[Blob], content_type: Optional[str] = None):
+        if content_type is not None:
+            filtered_blobs = [
+                blob for blob in blobs if blob.content_type == content_type
+            ]
+        else:
+            filtered_blobs = blobs
+        return filtered_blobs
