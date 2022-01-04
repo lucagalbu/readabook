@@ -8,6 +8,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
+import { StartPageModule } from './start-page/start-page.module';
+
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -19,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
+    StartPageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
