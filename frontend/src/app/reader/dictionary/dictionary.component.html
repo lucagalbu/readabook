@@ -1,0 +1,19 @@
+<mat-card class="dictionary-sticky">
+    <mat-card-content>
+        <mat-card-subtitle *ngIf="!word">Select a word to see its definition</mat-card-subtitle>
+        <div *ngFor="let def of definitions">
+            <mat-card-title>{{def.lemma}}</mat-card-title>
+            <mat-card-subtitle>{{def | extractSubtitle}}</mat-card-subtitle>
+            <mat-list>
+                <mat-list-item *ngFor="let translation of def.translations">
+                    <p matLine>{{translation.translation}}</p>
+                    <p matLine matSubheader *ngFor="let example of translation.examples">
+                        {{example.sentence}}:
+                        {{example.translation}}
+                    </p>
+                </mat-list-item>
+            </mat-list>
+            <mat-divider inset *ngIf="definitions.length>1" class="mb-2"></mat-divider>
+        </div>
+    </mat-card-content>
+</mat-card>

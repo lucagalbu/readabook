@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="toolbar-sticky">
+    <span>Read a book</span>
+    <span class="toolbar-spacer"></span>
+    <button class="new-book-button" mat-raised-button color="accent">NEW BOOK</button>
+</mat-toolbar>
+<div class="content">
+    <div class="scrollable" id="main-scrollable-container">
+        <router-outlet (activate)="onViewActivate()"></router-outlet>
+    </div>
+</div>

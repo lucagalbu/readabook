@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <h1 *ngIf="book">{{book.title}}</h1>
+        <h3 matSubheader *ngIf="book">{{book.author}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <book-content *ngIf="book" [book]="book" (wordSelected)="handleWordSelected($event)"></book-content>
+        </div>
+        <div class="col-4">
+            <dictionary [definitions]="currentDefinition" [word]="currentWord"></dictionary>
+        </div>
+    </div>
+</div>
