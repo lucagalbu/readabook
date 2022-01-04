@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { WordDef } from '../interfaces';
 
 @Component({
   selector: 'dictionary',
@@ -6,5 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dictionary.component.scss'],
 })
 export class DictionaryComponent implements OnInit {
+  @Input() word: string | null = null;
+  @Input() definitions: WordDef[] = [];
+
   ngOnInit(): void {}
 }
