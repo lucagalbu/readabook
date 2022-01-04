@@ -7,6 +7,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
+import { NgChartsModule } from 'ng2-charts';
+
 import { StartPageComponent } from './start-page.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookSummaryComponent } from './book-summary/book-summary.component';
@@ -15,6 +17,7 @@ import { BookSummaryComponent } from './book-summary/book-summary.component';
   declarations: [StartPageComponent, BookCardComponent, BookSummaryComponent],
   imports: [
     CommonModule,
+    NgChartsModule,
     RouterModule,
     MatCardModule,
     MatProgressBarModule,
