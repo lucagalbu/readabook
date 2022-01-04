@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Book } from '../interfaces';
 
 @Component({
   selector: 'app-book-card',
@@ -6,5 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit {
+  @Input() book: Book | undefined = undefined;
+  @Input() selected: boolean = false;
+
   ngOnInit(): void {}
 }
