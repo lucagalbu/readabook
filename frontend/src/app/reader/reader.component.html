@@ -7,5 +7,8 @@
         <div class="col-8">
             <book-content *ngIf="book" [book]="book" (wordSelected)="handleWordSelected($event)"></book-content>
         </div>
+        <div class="col-4">
+            <dictionary [definitions]="currentDefinition" [word]="currentWord"></dictionary>
+        </div>
     </div>
 </div>
