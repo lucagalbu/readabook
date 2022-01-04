@@ -8,9 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { StartPageComponent } from './start-page.component';
 import { BookCardComponent } from './book-card/book-card.component';
+import { BookSummaryComponent } from './book-summary/book-summary.component';
 
 @NgModule({
-  declarations: [StartPageComponent, BookCardComponent],
+  declarations: [StartPageComponent, BookCardComponent, BookSummaryComponent],
   imports: [
     CommonModule,
     RouterModule,
