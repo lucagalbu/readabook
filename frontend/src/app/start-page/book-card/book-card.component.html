@@ -14,7 +14,7 @@
         </div>
     </mat-card-content>
     <mat-card-actions class="action">
-        <button mat-flat-button color="accent">READ</button>
+        <button mat-flat-button color="accent" [routerLink]="['/reader', book.filename]">READ</button>
         <button mat-flat-button color="primary">WORD STATS</button>
         <button mat-flat-button color="primary">LEARN</button>
         <button mat-flat-button color="primary">REVIEW</button>
