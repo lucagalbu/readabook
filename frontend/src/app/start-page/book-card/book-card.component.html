@@ -1,2 +1,10 @@
 <mat-card *ngIf="book" [ngClass]="{'card-book': true, 'selected': selected}">
+    <mat-card-header class="header">
+        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg">
+        <mat-card-title>
+            <span class="title">{{book.title}}</span>&nbsp;
+            <span class="mat-caption">({{book.dateAdded |date:'mediumDate'}})</span>
+        </mat-card-title>
+        <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+    </mat-card-header>
 </mat-card>

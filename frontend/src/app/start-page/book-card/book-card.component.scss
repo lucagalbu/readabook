@@ -11,5 +11,18 @@ $primary-palette: map.get($color-config, "primary");
   &.selected {
     border-color: mat.get-color-from-palette($primary-palette);
     border-style: solid;
+    & .title {
+      color: mat.get-color-from-palette($primary-palette, "darker");
+    }
+  }
+  & .header {
+    cursor: pointer;
+    &:hover {
+      opacity: 90%;
+    }
+  }
+  & .action {
+    display: flex;
+    justify-content: space-between;
   }
 }
