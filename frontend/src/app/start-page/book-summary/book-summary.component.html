@@ -5,4 +5,14 @@
         </mat-card-title>
         <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
     </mat-card-header>
+
+    <mat-card-content>
+        <mat-divider inset></mat-divider>
+        <div class="m-3">
+            <div class="mat-body-strong">Statistics</div>
+            <div>Unique words: {{book.uniqueWords}}</div>
+            <div>Words learned: {{book.wordsLearned}} ({{book.wordsLearned/book.uniqueWords | percent}})</div>
+            <div>Fraction of book learned: {{book.fractionLearned | percent}}</div>
+        </div>
+    </mat-card-content>
 </mat-card>
