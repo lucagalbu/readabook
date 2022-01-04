@@ -7,8 +7,15 @@ import { ReaderComponent } from './reader.component';
 import { BookContentComponent } from './book-content/book-content.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
 
+import { ExtractSubtitlePipe } from './extract-subtitle.pipe';
+
 @NgModule({
-  declarations: [ReaderComponent, BookContentComponent, DictionaryComponent],
+  declarations: [
+    ReaderComponent,
+    BookContentComponent,
+    DictionaryComponent,
+    ExtractSubtitlePipe,
+  ],
   imports: [CommonModule, MatCardModule],
 })
 export class ReaderModule {}
