@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Pos } from './interfaces';
+import { Pos, Gender } from './interfaces';
 
 @Pipe({
   name: 'extractSubtitle',
@@ -27,6 +27,19 @@ export class ExtractSubtitlePipe implements PipeTransform {
         return 'Pronoun';
       case Pos.VERB:
         return 'Verb';
+      default:
+        return null;
+    }
+  }
+
+  private genderToString(value: Gender | undefined): string | null {
+    switch (value) {
+      case Gender.FEMININE:
+        return 'Feminine';
+      case Gender.MASCULINE:
+        return 'Masculine';
+      case Gender.NEUTER:
+        return 'Neuter';
       default:
         return null;
     }
