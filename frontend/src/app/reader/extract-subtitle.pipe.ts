@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Pos } from './interfaces';
 
 @Pipe({
   name: 'extractSubtitle',
@@ -6,5 +7,28 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ExtractSubtitlePipe implements PipeTransform {
   transform(value: any) {
     return value;
+  }
+
+  private posToString(value: Pos): string | null {
+    switch (value) {
+      case Pos.ADJECTIVE:
+        return 'Adjective';
+      case Pos.ADVERB:
+        return 'Adverb';
+      case Pos.CONJUNCTION:
+        return 'Conjunction';
+      case Pos.NOUN:
+        return 'Noun';
+      case Pos.NUMERAL:
+        return 'Numeral';
+      case Pos.PREPOSITION:
+        return 'Preposition';
+      case Pos.PRONOUN:
+        return 'Pronoun';
+      case Pos.VERB:
+        return 'Verb';
+      default:
+        return null;
+    }
   }
 }
