@@ -1,0 +1,15 @@
+// from https://material.angular.io/guide/theming-your-components
+// and https://material.angular.io/guide/theming#reading-hues-from-palettes
+@use "sass:map";
+@use "@angular/material" as mat;
+@import "../../../styles.scss";
+
+$color-config: mat.get-color-config($frontend-theme);
+$primary-palette: map.get($color-config, "primary");
+
+.card-book {
+  &.selected {
+    border-color: mat.get-color-from-palette($primary-palette);
+    border-style: solid;
+  }
+}
