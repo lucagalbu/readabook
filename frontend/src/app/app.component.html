@@ -5,6 +5,6 @@
 </mat-toolbar>
 <div class="content">
     <div class="scrollable" id="main-scrollable-container">
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="onViewActivate()"></router-outlet>
     </div>
 </div>
