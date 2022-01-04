@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { StartPageModule } from './start-page/start-page.module';
+import { ReaderModule } from './reader/reader.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatButtonModule,
     MatMenuModule,
     StartPageModule,
+    ReaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
