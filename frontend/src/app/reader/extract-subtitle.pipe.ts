@@ -1,12 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Pos, Gender, Aspects } from './interfaces';
+import { WordDef, Pos, Gender, Aspects } from './interfaces';
 
 @Pipe({
   name: 'extractSubtitle',
 })
 export class ExtractSubtitlePipe implements PipeTransform {
-  transform(value: any) {
-    return value;
+  transform(value: WordDef) {
+    const pos = this.posToString(value.pos);
+    const gender = this.genderToString(value.gender);
+    const aspect = this.aspectToString(value.aspect);
+
+    const terms = [pos, gender, aspect].filter((term) => term);
+    return terms.join(', ');
   }
 
   private posToString(value: Pos): string | null {
