@@ -14,5 +14,11 @@
             <div>Words learned: {{book.wordsLearned}} ({{book.wordsLearned/book.uniqueWords | percent}})</div>
             <div>Fraction of book learned: {{book.fractionLearned | percent}}</div>
         </div>
+        <mat-divider inset></mat-divider>
+        <div class="m-3">
+            <p class="mat-body-strong">Most common words</p>
+            <canvas baseChart [data]="data" [options]="options" [type]="'bar'">
+            </canvas>
+        </div>
     </mat-card-content>
 </mat-card>
