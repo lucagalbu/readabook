@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { forwardRef, Injectable } from '@angular/core';
 import { Book, WordDef, Pos, Gender, Aspects } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
+  useClass: forwardRef(() => ReaderServiceMocked),
 })
 export abstract class ReaderService {
   abstract getBook(filename: string): Book | null;
