@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Pos, Gender } from './interfaces';
+import { Pos, Gender, Aspects } from './interfaces';
 
 @Pipe({
   name: 'extractSubtitle',
@@ -40,6 +40,17 @@ export class ExtractSubtitlePipe implements PipeTransform {
         return 'Masculine';
       case Gender.NEUTER:
         return 'Neuter';
+      default:
+        return null;
+    }
+  }
+
+  private aspectToString(value: Aspects | undefined): string | null {
+    switch (value) {
+      case Aspects.IMPERFECTIVE:
+        return 'Imperfective';
+      case Aspects.PERFECTIVE:
+        return 'Perfective';
       default:
         return null;
     }
