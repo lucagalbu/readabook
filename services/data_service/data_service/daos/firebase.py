@@ -2,6 +2,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING, Optional, Union
 from firebase_admin import storage, App, initialize_app
+from firebase_admin import db
 from google.cloud.storage.blob import Blob
 from data_service.daos.base import DaoBase
 
@@ -26,6 +27,16 @@ class FirebaseClient:
     def bucket(self):
         """Return a Firebase Bucket from default app"""
         return storage.bucket()
+
+    @property
+    def database_get(self, path: str = "/"):
+        """
+        Return a reference to a database node.
+
+        Args:
+            path: path of the required node. (optional)
+        """
+        return db.reference(path=path)
 
 
 class FirebaseDao(DaoBase):
