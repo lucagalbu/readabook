@@ -13,4 +13,9 @@ export class AppComponent {
   onViewActivate() {
     document.querySelector('#main-scrollable-container')!.scrollTo(0, 0);
   }
+
+  onBookUpload(event: Event) {
+    const target = event.target as HTMLInputElement;
+    target.files && target.files[0] && this.service.uploadBook(target.files[0]);
+  }
 }
