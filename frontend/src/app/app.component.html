@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="toolbar-sticky">
     <span>Read a book</span>
     <span class="toolbar-spacer"></span>
-    <button class="new-book-button" mat-raised-button color="accent" (click)="bookInput.click()">NEW BOOK</button>
+    <button class="new-book-button" mat-raised-button color="accent" (click)="onNewBookClick()">NEW BOOK</button>
     <input class="file-input" type="file" #bookInput (change)="onBookUpload($event)" accept="text/plain" />
 </mat-toolbar>
 <div class="content">

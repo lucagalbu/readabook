@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { AppService } from './app.service';
+import { NewBookComponent } from './new-book/new-book.component';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,14 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private service: AppService) {}
+  constructor(private service: AppService, public dialog: MatDialog) {}
 
   onViewActivate() {
     document.querySelector('#main-scrollable-container')!.scrollTo(0, 0);
+  }
+
+  onNewBookClick() {
+    this.dialog.open(NewBookComponent);
   }
 
   onBookUpload(event: Event) {
