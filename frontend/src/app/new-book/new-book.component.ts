@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-new-book',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-book.component.scss'],
 })
 export class NewBookComponent implements OnInit {
+  file: File | null = null;
+  infoForm = new FormGroup({
+    title: new FormControl(''),
+    author: new FormControl(''),
+  });
+
   constructor() {}
 
   ngOnInit(): void {}
