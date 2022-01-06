@@ -10,7 +10,7 @@ import { NewBookComponent } from './new-book/new-book.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private service: AppService, public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {}
 
   onViewActivate() {
     document.querySelector('#main-scrollable-container')!.scrollTo(0, 0);

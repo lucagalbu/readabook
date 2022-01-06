@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-new-book',
@@ -13,7 +14,7 @@ export class NewBookComponent implements OnInit {
     author: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private service: AppService) {}
 
   ngOnInit(): void {}
 }
