@@ -19,9 +19,4 @@ export class AppComponent {
   onNewBookClick() {
     this.dialog.open(NewBookComponent);
   }
-
-  onBookUpload(event: Event) {
-    const target = event.target as HTMLInputElement;
-    target.files && target.files[0] && this.service.uploadBook(target.files[0]);
-  }
 }
