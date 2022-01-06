@@ -10,6 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { StartPageModule } from './start-page/start-page.module';
 import { ReaderModule } from './reader/reader.module';
@@ -26,7 +28,9 @@ import { AppRoutingModule } from './app-routing.module';
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
+    MatInputModule,
     MatMenuModule,
+    MatFormFieldModule,
     StartPageModule,
     ReaderModule,
   ],
