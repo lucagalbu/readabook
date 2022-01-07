@@ -17,6 +17,6 @@ export class AppComponent {
   }
 
   onNewBookClick() {
-    this.dialog.open(NewBookComponent);
+    this.dialog.open(NewBookComponent, { autoFocus: false });
   }
 }
