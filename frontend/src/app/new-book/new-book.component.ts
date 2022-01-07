@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from '../app.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { AppService } from '../app.service';
 export class NewBookComponent implements OnInit {
   file: File | null = null;
   infoForm = new FormGroup({
-    title: new FormControl(''),
-    author: new FormControl(''),
+    title: new FormControl('', Validators.required),
+    author: new FormControl('Unknown', Validators.required),
   });
 
   @ViewChild('fileInput') fileInputLement:
