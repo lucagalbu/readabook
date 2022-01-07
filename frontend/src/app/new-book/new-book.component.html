@@ -1,5 +1,19 @@
 <form [formGroup]="infoForm">
     <h2 mat-dialog-title>Upload a new book</h2>
+    <mat-dialog-content>
+        <div>
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput type="text" formControlName="title">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Author</mat-label>
+                <input matInput type="text" formControlName="author">
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
     <mat-dialog-actions>
         <button mat-stroked-button mat-dialog-close>Cancel</button>
         <button mat-stroked-button color="primary">Select file</button>
