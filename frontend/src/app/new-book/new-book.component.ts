@@ -16,5 +16,7 @@ export class NewBookComponent implements OnInit {
 
   constructor(private service: AppService) {}
 
+  handleFileInputChange(event: Event) {}
+
   ngOnInit(): void {}
 }

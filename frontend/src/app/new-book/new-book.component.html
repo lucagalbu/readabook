@@ -4,4 +4,6 @@
         <button mat-stroked-button mat-dialog-close>Cancel</button>
         <button mat-stroked-button color="primary">Select file</button>
     </mat-dialog-actions>
+
+    <input type="file" #fileInput id="fileInput" accept="text/plain" (change)="handleFileInputChange($event)">
 </form>
