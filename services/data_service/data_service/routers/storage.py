@@ -37,7 +37,7 @@ def make_router(dao: DaoBase):
         except Exception as err:
             raise HTTPException(
                 status_code=HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="The server encountered a problem while uploading the content.",
+                detail=str(err),
             ) from err
 
     return router
