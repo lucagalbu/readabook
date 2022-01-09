@@ -51,7 +51,15 @@ class FirebaseDao(DaoBase):
     def _add_book_to_db(self, book_info: BookInfo, name: str):
         """Add an entry to the db with the book info"""
         db_ref = db.reference("/books")
-        db_ref.set({name: {"title": book_info.title, "author": book_info.author}})
+        db_ref.set(
+            {
+                name: {
+                    "title": book_info.title,
+                    "author": book_info.author,
+                    "timestamp": book_info.timestamp,
+                }
+            }
+        )
 
     def _get_bucket(self):
         """Get the bucket associated to the firebase account and specified in the global setting.

@@ -8,3 +8,4 @@ class BookInfo:
 
     title: str
     author: str
+    timestamp: float

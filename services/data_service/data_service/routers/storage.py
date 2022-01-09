@@ -1,4 +1,5 @@
 """Module to create a router with the API endpoints of the data service"""
+import time
 from fastapi import HTTPException, File, Form, UploadFile
 from fastapi.routing import APIRouter
 from starlette.status import (
@@ -25,7 +26,7 @@ def make_router(dao: DaoBase):
         content = await file.read()
         content_type = file.content_type
 
-        book_info = BookInfo(title=title, author=author)
+        book_info = BookInfo(title=title, author=author, timestamp=time.time())
 
         try:
             service.upload(book_info, content_type=content_type, content=content)
