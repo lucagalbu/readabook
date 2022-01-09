@@ -12,8 +12,17 @@ import hashlib
 import firebase_admin
 from firebase_admin import App, storage, db
 from google.cloud.storage.bucket import Bucket
+from pydantic.main import BaseModel
 from data_service.daos.base import DaoBase
 from data_service.typings.book_info import BookInfo
+
+
+class BookInfoDbSchema(BaseModel):
+    """Schema of the book info as stored in the Firebase db"""
+
+    title: str
+    author: str
+    timestamp: float
 
 
 class FirebaseDao(DaoBase):
@@ -50,16 +59,9 @@ class FirebaseDao(DaoBase):
 
     def _add_book_to_db(self, book_info: BookInfo, name: str):
         """Add an entry to the db with the book info"""
+        value = BookInfoDbSchema(**book_info.__dict__)
         db_ref = db.reference("/books")
-        db_ref.set(
-            {
-                name: {
-                    "title": book_info.title,
-                    "author": book_info.author,
-                    "timestamp": book_info.timestamp,
-                }
-            }
-        )
+        db_ref.set({name: value.__dict__})
 
     def _get_bucket(self):
         """Get the bucket associated to the firebase account and specified in the global setting.
